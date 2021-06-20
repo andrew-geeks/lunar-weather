@@ -1,0 +1,11 @@
+{
+  "name": "lunar-weather",
+  "version": "1.0.0",
+  "description": "web project to get weather data",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew & Anto",
+  "license": "ISC"
+}
