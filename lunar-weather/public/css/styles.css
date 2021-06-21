@@ -1,0 +1,33 @@
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+}
+
+body{
+    background-color: #9966ff!important;
+    margin: 0;
+    height: 100%;
+}
+
+
+#top{
+    background-color:blueviolet;
+    height: 100px;
+}
+
+.nav-item{
+    padding-left: 30px;
+}
+
+.form-main{
+    display: block;
+    text-align: center;
+}
+
+.search-grp{
+    
+    margin-left: 35%;
+    margin-right:50%;
+    width:90%;
+    padding-top: 30px;
+}
