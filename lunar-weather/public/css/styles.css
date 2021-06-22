@@ -1,18 +1,22 @@
 html{
     scroll-behavior: smooth;
     overflow-x: hidden !important;
+    height: 100%;
+    width: 100%;
 }
 
 body{
     background-color: #9966ff!important;
     margin: 0;
     height: 100%;
+    width: 100%;
+    
 }
 
 
 #top{
     background-color:blueviolet;
-    height: 100px;
+   
 }
 
 .nav-item{
@@ -35,14 +39,22 @@ body{
 /* Weather Box */
 
 .weather-boxes{
-    padding-top:20px;
+    padding-top:80px;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
 }
+
 .w-box-1{
     background-color: crimson;
     width: 250px;
     height: 400px;
     border-radius: 20px;
+    margin-right: 50px;
+    margin-top: 50px;
+    
 }
 
 .w-box-2{
@@ -50,5 +62,19 @@ body{
     width: 250px;
     height: 400px;
     border-radius: 20px;
-    padding-left: 20px;
+    margin-right: 50px;
+    
+
+    
+}
+
+.w-box-3{
+    background-color:yellowgreen;
+    width: 250px;
+    height: 400px;
+    border-radius: 20px;
+    margin-right: 50px;
+    margin-top: 50px;
+
+    
 }
