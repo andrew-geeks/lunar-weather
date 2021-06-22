@@ -6,7 +6,7 @@ html{
 }
 
 body{
-    background-color: #9966ff!important;
+    /*background-color: #9966ff!important;*/
     margin: 0;
     height: 100%;
     width: 100%;
@@ -15,7 +15,8 @@ body{
 
 
 #top{
-    background-color:blueviolet;
+    background-color: #36454F;
+    /*background-color:blueviolet;*/
    
 }
 
@@ -36,6 +37,11 @@ body{
     padding-top: 30px;
 }
 
+
+#weather-data{
+    background-image: url("/images/w-bg.jpg");
+    height: 100%;
+}
 /* Weather Box */
 
 .weather-boxes{
