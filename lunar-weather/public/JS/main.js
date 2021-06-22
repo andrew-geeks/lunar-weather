@@ -4,9 +4,15 @@ var longitude;
 const successCallback=(position)=>{
     latitude=position.coords.latitude;
     longitude=position.coords.longitude;
-    var loc_data={"latitude":latitude,"longitude":longitude};
-    var final_loc_data=JSON.stringify(loc_data);
-    console.log(final_loc_data);
+    const loc_data={latitude,longitude};
+    const options={
+        method: "POST",
+        headers: {
+            "Content-type":"application/json"
+        },
+        body: JSON.stringify(loc_data)
+    };
+    fetch("/",options);
 
         
 }

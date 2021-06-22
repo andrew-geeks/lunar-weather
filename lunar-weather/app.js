@@ -16,8 +16,11 @@ app.get("/",(req,res)=>{
 })
 
 app.post("/",(req,res)=>{
-    console.log(req.body.name);
+    console.log(req.body.latitude);
+    console.log(req.body.longitude);
 })
+
+
 app.listen(3000,()=>{
     console.log("running @ 3000");
 })
