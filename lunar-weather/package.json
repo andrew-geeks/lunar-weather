@@ -7,5 +7,8 @@
     "start": "nodemon app.js"
   },
   "author": "Andrew & Anto",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "requests": "^0.3.0"
+  }
 }

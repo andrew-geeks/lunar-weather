@@ -54,7 +54,7 @@ body{
 }
 
 .w-box-1{
-    background-color: crimson;
+    background-color: rgba(255,255,255,0.5);
     width: 250px;
     height: 400px;
     border-radius: 20px;
@@ -64,18 +64,16 @@ body{
 }
 
 .w-box-2{
-    background-color:darkmagenta;
+    background-color: rgba(139,0,139,0.5);
     width: 250px;
     height: 400px;
     border-radius: 20px;
     margin-right: 50px;
-    
-
-    
+        
 }
 
 .w-box-3{
-    background-color:yellowgreen;
+    background-color:rgba(223, 255, 128,0.5);
     width: 250px;
     height: 400px;
     border-radius: 20px;
