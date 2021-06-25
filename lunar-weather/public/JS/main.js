@@ -13,8 +13,7 @@ const successCallback=(position)=>{
         body: JSON.stringify(loc_data)
     };
     fetch("/",options);
-
-        
+           
 }
 
 const errorCallback=(error)=>{
