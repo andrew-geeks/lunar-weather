@@ -4,7 +4,8 @@
   "description": "web project to get weather data",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
   },
   "author": "Andrew & Anto",
   "license": "ISC",
