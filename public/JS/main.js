@@ -1,5 +1,6 @@
 var latitude;
 var longitude;
+var load_number=0;
 
 const successCallback=(position)=>{
     latitude=position.coords.latitude;
@@ -13,11 +14,28 @@ const successCallback=(position)=>{
         body: JSON.stringify(loc_data)
     };
     fetch("/",options);
-           
+    if(sessionStorage.getItem("load_number")==null){
+        setTimeout(() => {
+            location.reload();
+            load_number++;
+            sessionStorage.setItem("load_number",load_number);
+        }, 700);
+        
+    }
+    else{
+
+    }
+              
 }
 
 const errorCallback=(error)=>{
     console.error(error);
 }
 
+
 navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+
+
+window.addEventListener('beforeunload', function (e) {
+    this.sessionStorage.removeItem("load_number");
+});
