@@ -11,8 +11,7 @@ var description="",description1="",description3="";
 var windspeed=0,windspeed1=0,windspeed3=0;
 const apikey="6ec36b52be3e1347f1cf9bf07a73c37d";
 const units="metric";
-const url1="http://api.openweathermap.org/data/2.5/weather?q="+location1+"&appid="+apikey+"&units="+units;
-const url3="http://api.openweathermap.org/data/2.5/weather?q="+location3+"&appid="+apikey+"&units="+units;
+
 
 const app=express();
 
@@ -40,8 +39,25 @@ app.get("/",(req,res)=>{
         })   
     })
 
+    const url3="http://api.openweathermap.org/data/2.5/weather?q="+location3+"&appid="+apikey+"&units="+units;
+    http.get(url3,function(response){
+        response.on("data",function(data){
+            const weatherData=JSON.parse(data);
+            temp3=weatherData.main.temp;
+            description3=weatherData.weather[0].description;
+            location3=weatherData.name;
+            const icon3=weatherData.weather[0].icon;
+            windspeed3=parseInt(weatherData.wind.speed)*3.6;
+            img_url3="http://openweathermap.org/img/wn/"+icon3+"@2x.png";
+            console.log("BOX3:",temp3,description3,location3,windspeed3);
+            
+        })   
+    })
 
-    res.render("index",{Location:location,Temp:temp,Img_url:img_url,Description:description,WindSpeed:windspeed,Location1:location1,Temp1:temp1,Img_url1:img_url1,Description1:description1,WindSpeed1:windspeed1});
+
+    res.render("index",{Location:location,Temp:temp,Img_url:img_url,Description:description,WindSpeed:windspeed,
+    Location1:location1,Temp1:temp1,Img_url1:img_url1,Description1:description1,WindSpeed1:windspeed1,
+    Location3:location3,Temp3:temp3,Img_url3:img_url3,Description3:description3,WindSpeed3:windspeed3});
 })
 
 app.post("/",(req,res)=>{ 
