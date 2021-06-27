@@ -19,7 +19,7 @@ const successCallback=(position)=>{
             location.reload();
             load_number++;
             sessionStorage.setItem("load_number",load_number);
-        }, 700);
+        }, 800);
         
     }
     else{

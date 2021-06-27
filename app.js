@@ -25,17 +25,17 @@ app.use(express.static("public"));
 
 app.get("/",(req,res)=>{
     const url1="http://api.openweathermap.org/data/2.5/weather?q="+location1+"&appid="+apikey+"&units="+units;
+    //BOX-1
     http.get(url1,function(response){
-        //console.log(response);
         response.on("data",function(data){
             const weatherData=JSON.parse(data);
             temp1=weatherData.main.temp;
             description1=weatherData.weather[0].description;
             location1=weatherData.name;
-            const icon=weatherData.weather[0].icon;
+            const icon1=weatherData.weather[0].icon;
             windspeed1=parseInt(weatherData.wind.speed)*3.6;
-            img_url1="http://openweathermap.org/img/wn/"+icon+"@2x.png";
-            console.log("BOX1:",temp1,description1,location1);
+            img_url1="http://openweathermap.org/img/wn/"+icon1+"@2x.png";
+            console.log("BOX1:",temp1,description1,location1,windspeed1);
             
         })   
     })
@@ -60,14 +60,12 @@ app.post("/",(req,res)=>{
             const icon=weatherData.weather[0].icon;
             windspeed=parseInt(weatherData.wind.speed)*3.6;
             img_url="http://openweathermap.org/img/wn/"+icon+"@2x.png";
-            console.log(temp,description,location);
+            console.log("UserLoc:",temp,description,location);
             
         })   
     })
     res.send({ redirectTo: '/' });
     
-
-
 })
 
 

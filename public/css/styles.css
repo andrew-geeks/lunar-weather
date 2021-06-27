@@ -56,17 +56,21 @@ body{
 
 .w-box-1{
     background-color: rgba(255,255,255,0.5);
+    color: white;
     width: 250px;
     height: 400px;
     border-radius: 20px;
     margin-right: 50px;
     margin-top: 50px;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
     
 }
 
 .w-box-1:hover{
     background-color: rgba(255,255,255);
+    color: black;
 }
 
 .w-box-2{
