@@ -32,9 +32,9 @@ app.get("/",(req,res)=>{
             description1=weatherData.weather[0].description;
             location1=weatherData.name;
             const icon1=weatherData.weather[0].icon;
-            windspeed1=parseInt(weatherData.wind.speed)*3.6;
+            windspeed1=(weatherData.wind.speed*3.6).toFixed(1);
             img_url1="http://openweathermap.org/img/wn/"+icon1+"@2x.png";
-            console.log("BOX1:",temp1,description1,location1,windspeed1);
+            //console.log("BOX1:",temp1,description1,location1,windspeed1);
             
         })   
     })
@@ -47,9 +47,9 @@ app.get("/",(req,res)=>{
             description3=weatherData.weather[0].description;
             location3=weatherData.name;
             const icon3=weatherData.weather[0].icon;
-            windspeed3=parseInt(weatherData.wind.speed)*3.6;
+            windspeed3=(weatherData.wind.speed*3.6).toFixed(1);
             img_url3="http://openweathermap.org/img/wn/"+icon3+"@2x.png";
-            console.log("BOX3:",temp3,description3,location3,windspeed3);
+            //console.log("BOX3:",temp3,description3,location3,windspeed3);
             
         })   
     })
@@ -74,15 +74,36 @@ app.post("/",(req,res)=>{
             description=weatherData.weather[0].description;
             location=weatherData.name;
             const icon=weatherData.weather[0].icon;
-            windspeed=parseInt(weatherData.wind.speed)*3.6;
+            windspeed=(weatherData.wind.speed*3.6).toFixed(1);
             img_url="http://openweathermap.org/img/wn/"+icon+"@2x.png";
-            console.log("UserLoc:",temp,description,location);
+            //console.log("UserLoc:",temp,description,location);
             
         })   
     })
     res.send({ redirectTo: '/' });
     
 })
+
+//search
+app.get('/city/:name', function(req , res){
+    const search_url="http://api.openweathermap.org/data/2.5/weather?q="+req.params.name+"&appid="+apikey+"&units="+units;
+    http.get(search_url,function(response){
+        //console.log(response);
+        response.on("data",function(data){
+            const weatherData=JSON.parse(data);
+            const search_temp=weatherData.main.temp;
+            const search_description=weatherData.weather[0].description;
+            const search_location=weatherData.name;
+            const icon=weatherData.weather[0].icon;
+            const search_windspeed=(weatherData.wind.speed*3.6).toFixed(1);
+            const search_img_url="http://openweathermap.org/img/wn/"+icon+"@2x.png";
+            console.log("search_loc",search_temp,search_description,search_location,search_windspeed);
+            res.render("search",{S_temp:search_temp,S_location:search_location});
+        })   
+    })
+    
+  });
+
 
 
 app.listen(process.env.PORT || 3000,()=>{
