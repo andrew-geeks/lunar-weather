@@ -46,8 +46,8 @@
     </section>    
     <section id="weather-data">
         <div class="form-main">
-            <form class="form-inline my-2 my-lg-0 search-grp">
-                <input class="form-control mr-sm-2" size="50" type="search" placeholder="Search Cities" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0 search-grp" method="POST" action="/search">
+                <input class="form-control mr-sm-2" name="search" size="50" type="search" placeholder="Search Cities" aria-label="Search">
                 <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i> Search</button>
             </form>
         </div>

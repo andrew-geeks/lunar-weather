@@ -9,6 +9,7 @@ var temp="",temp1="",temp3="";
 var img_url="",img_url1="",img_url3="";
 var description="",description1="",description3="";
 var windspeed=0,windspeed1=0,windspeed3=0;
+var search_city="";
 const apikey="6ec36b52be3e1347f1cf9bf07a73c37d";
 const units="metric";
 
@@ -60,6 +61,7 @@ app.get("/",(req,res)=>{
     Location3:location3,Temp3:temp3,Img_url3:img_url3,Description3:description3,WindSpeed3:windspeed3});
 })
 
+//location-weather-post
 app.post("/",(req,res)=>{ 
     latitude=req.body.latitude;
     longitude=req.body.longitude;
@@ -84,8 +86,9 @@ app.post("/",(req,res)=>{
     
 })
 
-//search
-app.get('/city/:name', function(req , res){
+//search-by input
+app.get("/search/:name",(req,res)=>{
+
     const search_url="http://api.openweathermap.org/data/2.5/weather?q="+req.params.name+"&appid="+apikey+"&units="+units;
     http.get(search_url,function(response){
         //console.log(response);
@@ -101,8 +104,16 @@ app.get('/city/:name', function(req , res){
             res.render("search",{S_temp:search_temp,S_location:search_location});
         })   
     })
-    
-  });
+})
+
+
+//posting-input-data-&-redirecting
+app.post('/search',(req,res)=>{
+    search_city=req.body.search;
+    res.redirect("/search/"+search_city);
+})
+
+
 
 
 
