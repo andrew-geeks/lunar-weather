@@ -101,7 +101,7 @@ app.get("/search/:name",(req,res)=>{
             const search_windspeed=(weatherData.wind.speed*3.6).toFixed(1);
             const search_img_url="http://openweathermap.org/img/wn/"+icon+"@2x.png";
             console.log("search_loc",search_temp,search_description,search_location,search_windspeed);
-            res.render("search",{S_temp:search_temp,S_location:search_location});
+            res.render("search",{Title:search_location,S_temp:search_temp,S_location:search_location});
         })   
     })
 })
